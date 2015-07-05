@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using KlinkerSoft.Movies.Core.Models;
+using KlinkerSoft.Movies.Core.Domain;
 
 namespace KlinkerSoft.Movies.Core.Player
 {

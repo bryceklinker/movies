@@ -3,7 +3,7 @@ using KlinkerSoft.Movies.Core.General;
 using KlinkerSoft.Movies.Core.Player;
 using Microsoft.AspNet.Mvc;
 
-namespace Api.Player
+namespace KlinkerSoft.Movies.Api.Player
 {
     [Route("play")]
     public class PlayerController : Controller

@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
 using KlinkerSoft.Movies.Core.General;
 using KlinkerSoft.Movies.Core.Search;
+using Microsoft.AspNet.Cors.Core;
 using Microsoft.AspNet.Mvc;
 
-namespace Api.Search
+namespace KlinkerSoft.Movies.Api.Search
 {
     [Route("search")]
     public class SearchController : Controller
@@ -14,8 +15,9 @@ namespace Api.Search
         {
             _interactor = interactor;
         }
-
-        [HttpGet("{title}")]
+        
+        [HttpGet("")]
+        [EnableCors("default")]
         public async Task<IActionResult> Search(string title)
         {
             var request = new SearchRequest { Title = title };

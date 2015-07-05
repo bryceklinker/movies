@@ -55,6 +55,7 @@
           "lib/dnxcore50/Microsoft.AspNet.Authorization.dll": {}
         }
       },
+      "Microsoft.AspNet.Cors/5.2.3": {},
       "Microsoft.AspNet.Cors.Core/1.0.0-beta6-10644": {
         "dependencies": {
           "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta6-11554",
@@ -133,6 +134,24 @@
         },
         "runtime": {
           "lib/dnxcore50/Microsoft.AspNet.DataProtection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Diagnostics/1.0.0-beta6-13362": {
+        "dependencies": {
+          "Microsoft.AspNet.Diagnostics.Abstractions": "1.0.0-beta6-13362",
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-beta6-11697",
+          "Microsoft.AspNet.WebUtilities": "1.0.0-beta6-11697",
+          "Microsoft.Framework.OptionsModel": "1.0.0-beta6-11528",
+          "Microsoft.Framework.WebEncoders.Core": "1.0.0-beta6-11697",
+          "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta6-12170",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta6-11558",
+          "System.Reflection.Extensions": "4.0.0-beta-23029"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.AspNet.Diagnostics.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.AspNet.Diagnostics.dll": {}
         }
       },
       "Microsoft.AspNet.Diagnostics.Abstractions/1.0.0-beta6-13362": {
@@ -2085,6 +2104,16 @@
         "lib/dnxcore50/Microsoft.AspNet.Authorization.xml"
       ]
     },
+    "Microsoft.AspNet.Cors/5.2.3": {
+      "serviceable": true,
+      "sha512": "6pGL9FwV+FAFK5At8B4TefhScN3Pwe589MCHopeLQVfuKuGdNEuNDEXL+SHCgdN1ZSHxPAhzSZHCL0xt90CKfQ==",
+      "files": [
+        "Microsoft.AspNet.Cors.5.2.3.nupkg",
+        "Microsoft.AspNet.Cors.5.2.3.nupkg.sha512",
+        "Microsoft.AspNet.Cors.nuspec",
+        "lib/net45/System.Web.Cors.dll"
+      ]
+    },
     "Microsoft.AspNet.Cors.Core/1.0.0-beta6-10644": {
       "serviceable": true,
       "sha512": "eTRWGa9SN3ZQN53wGkLkibyoEABfpnBiwgJhu2rVK3vmpEs7E3yATo2ZwsqazQ2xY2sM2ssSGomggLpr6UjNmQ==",
@@ -2145,6 +2174,20 @@
         "lib/dnxcore50/Microsoft.AspNet.DataProtection.Abstractions.xml",
         "lib/net451/Microsoft.AspNet.DataProtection.Abstractions.dll",
         "lib/net451/Microsoft.AspNet.DataProtection.Abstractions.xml"
+      ]
+    },
+    "Microsoft.AspNet.Diagnostics/1.0.0-beta6-13362": {
+      "serviceable": true,
+      "sha512": "99rGHJMvfRQha0XGXvE7ECiCrYiV5vQqzy5pD68Y+gpOarP98XE4Sj08BPGUKOWZE6sNeKxoVRNBJReGvyQ5Ag==",
+      "files": [
+        "Microsoft.AspNet.Diagnostics.1.0.0-beta6-13362.nupkg",
+        "Microsoft.AspNet.Diagnostics.1.0.0-beta6-13362.nupkg.sha512",
+        "Microsoft.AspNet.Diagnostics.nuspec",
+        "repo.json",
+        "lib/dnx451/Microsoft.AspNet.Diagnostics.dll",
+        "lib/dnx451/Microsoft.AspNet.Diagnostics.xml",
+        "lib/dnxcore50/Microsoft.AspNet.Diagnostics.dll",
+        "lib/dnxcore50/Microsoft.AspNet.Diagnostics.xml"
       ]
     },
     "Microsoft.AspNet.Diagnostics.Abstractions/1.0.0-beta6-13362": {
@@ -4706,12 +4749,13 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.AspNet.Server.WebListener >= 1.0.0-*",
+      "Microsoft.AspNet.Mvc >= 6.0.0-*",
+      "Microsoft.Framework.ConfigurationModel >= 1.0.0-*",
+      "Microsoft.Framework.ConfigurationModel.Json >= 1.0.0-*",
+      "Microsoft.AspNet.Diagnostics >= 1.0.0-*",
+      "Microsoft.AspNet.Cors >= 5.2.3",
       "Core >= 1.0.0-*"
     ],
-    "DNXCore,Version=v5.0": [
-      "Microsoft.AspNet.Mvc >= 6.0.0-beta6-*",
-      "Microsoft.Framework.ConfigurationModel >= 1.0.0-beta5-*",
-      "Microsoft.Framework.ConfigurationModel.Json >= 1.0.0-beta5-*"
-    ]
+    "DNXCore,Version=v5.0": []
   }
 }

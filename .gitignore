@@ -30,3 +30,5 @@ node_modules
 .idea
 *.suo
 *.user
+/source/.vs/config
+/source/Web/bower_components

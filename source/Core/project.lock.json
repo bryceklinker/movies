@@ -1359,13 +1359,13 @@
   "projectFileDependencyGroups": {
     "": [],
     "DNXCore,Version=v5.0": [
-      "System.Collections >= 4.0.10-beta-*",
-      "System.Linq >= 4.0.0-beta-*",
-      "System.Threading >= 4.0.10-beta-*",
-      "Microsoft.CSharp >= 4.0.0-beta-*",
-      "System.IO.FileSystem >= 4.0.0-beta-*",
-      "Microsoft.Framework.ConfigurationModel >= 1.0.0-beta5-*",
-      "Microsoft.Framework.DependencyInjection >= 1.0.0-beta6-*"
+      "System.Collections >= 4.0.10-*",
+      "System.Linq >= 4.0.0-*",
+      "System.Threading >= 4.0.10-*",
+      "Microsoft.CSharp >= 4.0.0-*",
+      "System.IO.FileSystem >= 4.0.0-*",
+      "Microsoft.Framework.ConfigurationModel >= 1.0.0-*",
+      "Microsoft.Framework.DependencyInjection >= 1.0.0-*"
     ]
   }
 }

@@ -1,7 +1,7 @@
 using System.IO;
 using KlinkerSoft.Movies.Core.General;
 
-namespace KlinkerSoft.Movies.Core.Models
+namespace KlinkerSoft.Movies.Core.Domain
 {
     public class Movie
     {

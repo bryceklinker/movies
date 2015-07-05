@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using KlinkerSoft.Movies.Core.Domain;
 using KlinkerSoft.Movies.Core.Gateways;
-using KlinkerSoft.Movies.Core.Models;
 
 namespace KlinkerSoft.Movies.Core.Player
 {

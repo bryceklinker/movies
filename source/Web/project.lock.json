@@ -189,6 +189,21 @@
           "lib/dnxcore50/Microsoft.AspNet.Server.WebListener.dll": {}
         }
       },
+      "Microsoft.AspNet.StaticFiles/1.0.0-beta6-12150": {
+        "dependencies": {
+          "Microsoft.AspNet.Http.Extensions": "1.0.0-beta6-11697",
+          "Microsoft.AspNet.FileProviders.Abstractions": "1.0.0-beta6-11592",
+          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-beta6-12093",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta6-11558",
+          "Microsoft.Framework.WebEncoders": "1.0.0-beta6-11697"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.AspNet.StaticFiles.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.AspNet.StaticFiles.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebUtilities/1.0.0-beta6-11697": {
         "dependencies": {
           "Microsoft.Framework.WebEncoders.Core": "1.0.0-beta6-11697",
@@ -247,6 +262,17 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Framework.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Configuration.Binder/1.0.0-beta6-11554": {
+        "dependencies": {
+          "Microsoft.Framework.Configuration": "1.0.0-beta6-11554"
+        },
+        "compile": {
+          "lib/dotnet/Microsoft.Framework.Configuration.Binder.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/Microsoft.Framework.Configuration.Binder.dll": {}
         }
       },
       "Microsoft.Framework.Configuration.CommandLine/1.0.0-beta6-11554": {
@@ -351,6 +377,30 @@
           "lib/dotnet/Microsoft.Framework.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Framework.OptionsModel/1.0.0-beta6-11528": {
+        "dependencies": {
+          "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta6-11554",
+          "Microsoft.Framework.Configuration.Binder": "1.0.0-beta6-11554",
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta6-11558",
+          "System.ComponentModel": "4.0.0-beta-23029",
+          "System.Diagnostics.Debug": "4.0.10-beta-23029",
+          "System.Globalization": "4.0.10-beta-23029",
+          "System.Linq": "4.0.0-beta-23029",
+          "System.Linq.Expressions": "4.0.10-beta-23029",
+          "System.Reflection": "4.0.10-beta-23029",
+          "System.Reflection.TypeExtensions": "4.0.0-beta-23029",
+          "System.Resources.ResourceManager": "4.0.0-beta-23029",
+          "System.Runtime": "4.0.20-beta-23029",
+          "System.Runtime.Extensions": "4.0.10-beta-23029",
+          "System.Threading": "4.0.10-beta-23029"
+        },
+        "compile": {
+          "lib/dotnet/Microsoft.Framework.OptionsModel.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/Microsoft.Framework.OptionsModel.dll": {}
+        }
+      },
       "Microsoft.Framework.Runtime.Abstractions/1.0.0-beta6-12170": {
         "dependencies": {
           "System.IO": "4.0.10-beta-23029",
@@ -365,6 +415,19 @@
         },
         "runtime": {
           "lib/dnxcore50/Microsoft.Framework.Runtime.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.WebEncoders/1.0.0-beta6-11697": {
+        "dependencies": {
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta6-11558",
+          "Microsoft.Framework.OptionsModel": "1.0.0-beta6-11528",
+          "Microsoft.Framework.WebEncoders.Core": "1.0.0-beta6-11697"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.WebEncoders.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.WebEncoders.dll": {}
         }
       },
       "Microsoft.Framework.WebEncoders.Core/1.0.0-beta6-11697": {
@@ -1421,6 +1484,20 @@
         "lib/dnxcore50/Microsoft.AspNet.Server.WebListener.xml"
       ]
     },
+    "Microsoft.AspNet.StaticFiles/1.0.0-beta6-12150": {
+      "serviceable": true,
+      "sha512": "pJGAGiIgm8/DP6eisMOr8ocw9HuKsR5BBqx1e199IAikXxV/lYsJ0eHvAt6YCHiC/DQf+zZp53VSNG9jmu58bg==",
+      "files": [
+        "Microsoft.AspNet.StaticFiles.1.0.0-beta6-12150.nupkg",
+        "Microsoft.AspNet.StaticFiles.1.0.0-beta6-12150.nupkg.sha512",
+        "Microsoft.AspNet.StaticFiles.nuspec",
+        "repo.json",
+        "lib/dnx451/Microsoft.AspNet.StaticFiles.dll",
+        "lib/dnx451/Microsoft.AspNet.StaticFiles.xml",
+        "lib/dnxcore50/Microsoft.AspNet.StaticFiles.dll",
+        "lib/dnxcore50/Microsoft.AspNet.StaticFiles.xml"
+      ]
+    },
     "Microsoft.AspNet.WebUtilities/1.0.0-beta6-11697": {
       "serviceable": true,
       "sha512": "F+N6b36fANpKgtXez3K1ZLXzxO8yqoWElZC51As0Hz65B+oayE3oLSygqmKOJ3tFyNWNRKKydoCdDftuFFInxA==",
@@ -1481,6 +1558,22 @@
         "lib/dotnet/Microsoft.Framework.Configuration.Abstractions.xml",
         "lib/net45/Microsoft.Framework.Configuration.Abstractions.dll",
         "lib/net45/Microsoft.Framework.Configuration.Abstractions.xml"
+      ]
+    },
+    "Microsoft.Framework.Configuration.Binder/1.0.0-beta6-11554": {
+      "serviceable": true,
+      "sha512": "kEvdzCeO31mXgof3+PqWJ4uC7IwNRb/iWJcx1z0M4FBdo1c02lAr1r5vtEKHhORV/doiZGays46U7Q6PbrOpaw==",
+      "files": [
+        "Microsoft.Framework.Configuration.Binder.1.0.0-beta6-11554.nupkg",
+        "Microsoft.Framework.Configuration.Binder.1.0.0-beta6-11554.nupkg.sha512",
+        "Microsoft.Framework.Configuration.Binder.nuspec",
+        "repo.json",
+        "lib/dnx451/Microsoft.Framework.Configuration.Binder.dll",
+        "lib/dnx451/Microsoft.Framework.Configuration.Binder.xml",
+        "lib/dotnet/Microsoft.Framework.Configuration.Binder.dll",
+        "lib/dotnet/Microsoft.Framework.Configuration.Binder.xml",
+        "lib/net45/Microsoft.Framework.Configuration.Binder.dll",
+        "lib/net45/Microsoft.Framework.Configuration.Binder.xml"
       ]
     },
     "Microsoft.Framework.Configuration.CommandLine/1.0.0-beta6-11554": {
@@ -1595,6 +1688,22 @@
         "lib/net45/Microsoft.Framework.Logging.Abstractions.xml"
       ]
     },
+    "Microsoft.Framework.OptionsModel/1.0.0-beta6-11528": {
+      "serviceable": true,
+      "sha512": "JkqnOFiCFu28GF842iff4rQIEoyc4MSMTifDgyPlnMpPsL+mcp4IHGpvw5p+79VsTLPoY1BvhevMT5970bRGwQ==",
+      "files": [
+        "Microsoft.Framework.OptionsModel.1.0.0-beta6-11528.nupkg",
+        "Microsoft.Framework.OptionsModel.1.0.0-beta6-11528.nupkg.sha512",
+        "Microsoft.Framework.OptionsModel.nuspec",
+        "repo.json",
+        "lib/dnx451/Microsoft.Framework.OptionsModel.dll",
+        "lib/dnx451/Microsoft.Framework.OptionsModel.xml",
+        "lib/dotnet/Microsoft.Framework.OptionsModel.dll",
+        "lib/dotnet/Microsoft.Framework.OptionsModel.xml",
+        "lib/net45/Microsoft.Framework.OptionsModel.dll",
+        "lib/net45/Microsoft.Framework.OptionsModel.xml"
+      ]
+    },
     "Microsoft.Framework.Runtime.Abstractions/1.0.0-beta6-12170": {
       "serviceable": true,
       "sha512": "ChyWQv+5c9quJ7U6eDcuY5FhptrmQHf0wRkpoNKTe34q8tslmPVv7jaFsR089MMoTWU8l7IGAX91q7scZ1nRpQ==",
@@ -1606,6 +1715,22 @@
         "lib/dnx451/Microsoft.Framework.Runtime.Abstractions.xml",
         "lib/dnxcore50/Microsoft.Framework.Runtime.Abstractions.dll",
         "lib/dnxcore50/Microsoft.Framework.Runtime.Abstractions.xml"
+      ]
+    },
+    "Microsoft.Framework.WebEncoders/1.0.0-beta6-11697": {
+      "serviceable": true,
+      "sha512": "neBQPliQ0fDMrkJmtW0OWrqTf0b/RMyaChkReuBJf6hjFkg6NvLqG64SfsdZ8IgLYtZaJIk9NTFY/6KQC8iv/Q==",
+      "files": [
+        "Microsoft.Framework.WebEncoders.1.0.0-beta6-11697.nupkg",
+        "Microsoft.Framework.WebEncoders.1.0.0-beta6-11697.nupkg.sha512",
+        "Microsoft.Framework.WebEncoders.nuspec",
+        "repo.json",
+        "lib/dnx451/Microsoft.Framework.WebEncoders.dll",
+        "lib/dnx451/Microsoft.Framework.WebEncoders.xml",
+        "lib/dnxcore50/Microsoft.Framework.WebEncoders.dll",
+        "lib/dnxcore50/Microsoft.Framework.WebEncoders.xml",
+        "lib/net45/Microsoft.Framework.WebEncoders.dll",
+        "lib/net45/Microsoft.Framework.WebEncoders.xml"
       ]
     },
     "Microsoft.Framework.WebEncoders.Core/1.0.0-beta6-11697": {
@@ -3128,6 +3253,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Microsoft.AspNet.StaticFiles >= 1.0.0-*",
       "Microsoft.AspNet.Server.WebListener >= 1.0.0-*"
     ],
     "DNXCore,Version=v5.0": []
