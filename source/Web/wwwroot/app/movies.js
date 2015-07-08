@@ -6,6 +6,11 @@
     });
 
     module.constant('events', {
-        searchFinished: 'SearchFinished'
+        searchFinished: 'SearchFinished',
+        playMovie: 'PlayMovie'
     });
+
+    module.config(['$sceProvider', function($sceProvider) {
+        $sceProvider.enabled(false);
+    }]);
 })(angular = window.angular || {});

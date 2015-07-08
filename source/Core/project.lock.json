@@ -58,9 +58,9 @@
           "lib/dnxcore50/Microsoft.Framework.ConfigurationModel.Abstractions.dll": {}
         }
       },
-      "Microsoft.Framework.DependencyInjection/1.0.0-beta6-11558": {
+      "Microsoft.Framework.DependencyInjection/1.0.0-beta6-11563": {
         "dependencies": {
-          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta6-11558",
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta6-11563",
           "System.Collections": "4.0.10-beta-23029",
           "System.Collections.Concurrent": "4.0.10-beta-23029",
           "System.Threading": "4.0.10-beta-23029",
@@ -73,7 +73,7 @@
           "lib/dotnet/Microsoft.Framework.DependencyInjection.dll": {}
         }
       },
-      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta6-11558": {
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta6-11563": {
         "dependencies": {
           "System.ComponentModel": "4.0.0-beta-23029",
           "System.Diagnostics.Debug": "4.0.10-beta-23029",
@@ -545,12 +545,12 @@
         "lib/portable-net45+win/Microsoft.Framework.ConfigurationModel.Abstractions.xml"
       ]
     },
-    "Microsoft.Framework.DependencyInjection/1.0.0-beta6-11558": {
+    "Microsoft.Framework.DependencyInjection/1.0.0-beta6-11563": {
       "serviceable": true,
-      "sha512": "12J6iI58sFHJ/hPDGWp9YAKn2w/0HfP2AKvZ6ydbCIjrQrPTEBsxKFHMaXF8/qTbIM9iCMyjif1omt0CAwV2rw==",
+      "sha512": "oJmY6HwcLmo19JqtGVLi1MTGT8b4kht72KiilYxi1cNJQt1tH0YQcaLWj/ULOe0QOi2HeA2IeENCyZ8NegQy+g==",
       "files": [
-        "Microsoft.Framework.DependencyInjection.1.0.0-beta6-11558.nupkg",
-        "Microsoft.Framework.DependencyInjection.1.0.0-beta6-11558.nupkg.sha512",
+        "Microsoft.Framework.DependencyInjection.1.0.0-beta6-11563.nupkg",
+        "Microsoft.Framework.DependencyInjection.1.0.0-beta6-11563.nupkg.sha512",
         "Microsoft.Framework.DependencyInjection.nuspec",
         "repo.json",
         "lib/dnx451/Microsoft.Framework.DependencyInjection.dll",
@@ -561,12 +561,12 @@
         "lib/net45/Microsoft.Framework.DependencyInjection.xml"
       ]
     },
-    "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta6-11558": {
+    "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta6-11563": {
       "serviceable": true,
-      "sha512": "WrZvqGKfSXbY3TvPtWXhpQAw1D+gVKpPdei23smPoZ1P3p+UsplzgWLCLWfP6Ziag54n6HpuX3ndo2UWytgbnw==",
+      "sha512": "tMQZ77AMayVCsCQhnDFy335a4kvd+vzmWzzIMg9jOrTmUV52opZcTHoOVP4yuLwFNAeFnEVXSEmXmfCzuGRyAw==",
       "files": [
-        "Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta6-11558.nupkg",
-        "Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta6-11558.nupkg.sha512",
+        "Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta6-11563.nupkg",
+        "Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta6-11563.nupkg.sha512",
         "Microsoft.Framework.DependencyInjection.Abstractions.nuspec",
         "repo.json",
         "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll",

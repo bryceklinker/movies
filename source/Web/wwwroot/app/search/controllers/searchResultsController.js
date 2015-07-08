@@ -4,6 +4,10 @@
             $scope.movies = args.movies;
         }
 
+        $scope.play = function(movie) {
+            eventBus.publish(events.playMovie, movie);
+        };
+
         eventBus.subscribe(events.searchFinished, handleSearchFinished);
     }]);
 })(angular = window.angular || {});
