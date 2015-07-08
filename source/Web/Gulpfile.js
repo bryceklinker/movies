@@ -22,12 +22,16 @@ var paths = {
     ]
 };
 
+gulp.task('watch', function() {
+    gulp.watch(paths.appjs, ['default']);
+});
+
 gulp.task('default', function () {
     gulp.src(paths.appjs)
         .pipe(concat('movies.min.js'))
-        //.pipe(uglify({
-        //    mangle: true
-        //}))
+        .pipe(uglify({
+            mangle: true
+        }))
         .pipe(gulp.dest(paths.dest + '/js'));
 
     gulp.src(paths.thirdpartyjs)

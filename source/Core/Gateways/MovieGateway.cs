@@ -18,7 +18,7 @@ namespace KlinkerSoft.Movies.Core.Gateways
 
         public IEnumerable<Movie> GetAll()
         {
-            return _directory.GetFiles(_movieDirectory)
+            return _directory.GetFiles(_movieDirectory, "*.mp4")
                 .Select(f => new Movie(f));
         }
 

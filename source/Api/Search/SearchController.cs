@@ -22,7 +22,7 @@ namespace KlinkerSoft.Movies.Api.Search
         {
             var request = new SearchRequest { Title = title };
             var response = await _interactor.Interact(request);
-            return new ObjectResult(response);
+            return new ObjectResult(response.AsViewModel());
         }
     }
 }
