@@ -1,7 +1,7 @@
 ﻿<form class="navbar-form navbar-left" role="search" data-ng-controller="searchFormController">
-    <div class="form-group">
-        <label for="title">Search:</label>
-        <input type="text" id="title" placeholder="Title" data-ng-model="title" />
-    </div>
-    <button class="btn btn-primary" data-ng-click="search()">Search</button>
+    <input class="form-control" type="text" id="title" placeholder="Title" data-ng-model="title" />
+    <button class="btn btn-primary" data-ng-click="search()">
+        <span class="glyphicon glyphicon-search" 
+              data-ng-class="{spinning: isSearching}" />
+    </button>
 </form>

@@ -1,20 +1,19 @@
 ﻿(function(angular) {
-    angular.module('movies').controller('searchFormController', ['$scope', '$http', 'config', 'events', 'eventBus', function($scope, $http, config, events, eventBus) {
-        function searchFinished(data) {
-            eventBus.publish(events.searchFinished, data);
-        }
-
-        function searchFailed() {
-            $scope.error = 'Your search failed!';
-        }
-
-        var search = function() {
-            var url = config.apiUrl + '/search?title=' + $scope.title;
-            $http.get(url)
-                .success(searchFinished)
-                .error(searchFailed);
+    angular.module('movies').controller('searchFormController', ['$scope', 'events', 'eventBus', function($scope, events, eventBus) {
+        $scope.search = function() {
+            var searchArgs = { title: $scope.title };
+            eventBus.publish(events.search, searchArgs);
         };
 
-        $scope.search = search;
+        function handleSearchStarted() {
+            $scope.isSearching = true;
+        }
+
+        function handleSearchFinished() {
+            $scope.isSearching = false;
+        }
+
+        eventBus.subscribe(events.searchStarted, handleSearchStarted);
+        eventBus.subscribe(events.searchFinished, handleSearchFinished);
     }]);
 })(angular = window.angular || {});

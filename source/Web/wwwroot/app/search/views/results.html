@@ -1,8 +1,20 @@
-﻿<div data-ng-hide="movies === undefined" class="col-sm-12" data-ng-controller="searchResultsController">
-    <div class="row">
+﻿<div class="col-sm-12" data-ng-controller="searchResultsController">
+    <div class="row" data-ng-show="movies === undefined">
+        <div class="jumbotron" >
+            <h3>Please enter the title of the movie you would like to watch.</h3>
+        </div>
+    </div>
+
+    <div class="row" data-ng-show="movies.length === 0">
+        <div class="jumbotron">
+            <h3>There are no movies that match your search.</h3>
+        </div>
+    </div>
+
+    <div class="row" data-ng-hide="movies === undefined">
         <div class="col-sm-3" data-ng-repeat="movie in movies">
             <div class="row">
-                <div class="col-sm-6" data-ng-show="movie.hasThumbnail">
+                <div class="col-sm-6" data-ng-if="movie.hasThumbnail">
                     <img class="img-thumbnail img-responsive" src="data:image/png;base64,{{movie.thumbnail}}" />
                 </div>
                 <div class="col-sm-6">
@@ -23,3 +35,5 @@
         </div>
     </div>
 </div>
+
+

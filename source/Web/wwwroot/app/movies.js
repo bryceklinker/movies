@@ -7,7 +7,9 @@
 
     module.constant('events', {
         searchFinished: 'SearchFinished',
-        playMovie: 'PlayMovie'
+        searchStarted: 'SearchStarted',
+        search: 'Search',
+        play: 'Play'
     });
 
     module.config(['$sceProvider', function($sceProvider) {
