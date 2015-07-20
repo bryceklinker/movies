@@ -32,3 +32,6 @@ node_modules
 *.user
 /source/.vs/config
 /source/Web/bower_components
+/source/packages
+/source/Universal/bin/x86/Debug
+/source/Universal/obj/x86/Debug

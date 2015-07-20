@@ -1,0 +1,12 @@
+﻿<UserControl
+    x:Class="KlinkerSoft.Movies.Universal.Search.Views.SearchResultsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewModels="using:KlinkerSoft.Movies.Universal.Search.ViewModels">
+    <UserControl.DataContext>
+        <viewModels:SearchResultsViewModel />
+    </UserControl.DataContext>
+    <Grid>
+
+    </Grid>
+</UserControl>
