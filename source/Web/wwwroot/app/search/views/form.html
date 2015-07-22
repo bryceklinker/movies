@@ -1,7 +1,8 @@
 ﻿<form class="navbar-form navbar-left" role="search" data-ng-controller="searchFormController">
     <input class="form-control" type="text" id="title" placeholder="Title" data-ng-model="title" />
     <button class="btn btn-primary" data-ng-click="search()">
-        <span class="glyphicon glyphicon-search" 
-              data-ng-class="{spinning: isSearching}" />
+        <span class="glyphicon glyphicon-search"
+              data-ng-class="{spinning: isSearching, 'glyphicon-refresh': isSearching}">
+        </span>
     </button>
 </form>

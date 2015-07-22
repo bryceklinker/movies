@@ -1782,6 +1782,18 @@
           "lib/dotnet/System.Runtime.Numerics.dll": {}
         }
       },
+      "System.Runtime.Serialization.Primitives/4.0.10-beta-23109": {
+        "dependencies": {
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109"
+        },
+        "compile": {
+          "ref/dotnet/System.Runtime.Serialization.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Runtime.Serialization.Primitives.dll": {}
+        }
+      },
       "System.Security.Claims/4.0.0-beta-23109": {
         "dependencies": {
           "System.Collections": "4.0.0-beta-23109",
@@ -4331,6 +4343,29 @@
         "System.Runtime.Numerics.nuspec"
       ]
     },
+    "System.Runtime.Serialization.Primitives/4.0.10-beta-23109": {
+      "serviceable": true,
+      "sha512": "RDn2kafZ7Ds9ZYXFatvnFFr+YEEcmfuGNqDqWrKebKrZB0fw/VsP5b5CpgH+Cn7HlPjxMXka3EXJsH+ry5a84w==",
+      "files": [
+        "lib/dotnet/System.Runtime.Serialization.Primitives.dll",
+        "lib/net46/_._",
+        "ref/dotnet/de/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/es/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/fr/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/it/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/ja/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/ko/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/ru/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/System.Runtime.Serialization.Primitives.dll",
+        "ref/dotnet/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/zh-hans/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/zh-hant/System.Runtime.Serialization.Primitives.xml",
+        "ref/net46/_._",
+        "System.Runtime.Serialization.Primitives.4.0.10-beta-23109.nupkg",
+        "System.Runtime.Serialization.Primitives.4.0.10-beta-23109.nupkg.sha512",
+        "System.Runtime.Serialization.Primitives.nuspec"
+      ]
+    },
     "System.Security.Claims/4.0.0-beta-23109": {
       "serviceable": true,
       "sha512": "GfD1EvUHVHv6YgNjylusvOuq2AY0C7B9zsAQhvtQMxsN9YCpK2DDWawbtQjiYctET/f9ReJC34Kq2VBrIPFzVw==",
@@ -4920,6 +4955,7 @@
       "Microsoft.Framework.ConfigurationModel.Json >= 1.0.0-*",
       "Microsoft.AspNet.Diagnostics >= 1.0.0-*",
       "Microsoft.AspNet.Cors >= 1.0.0-*",
+      "System.Runtime.Serialization.Primitives >= 4.0.10-*",
       "Core >= 1.0.0-*"
     ],
     "DNXCore,Version=v5.0": []
