@@ -1,0 +1,35 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "gulp test",
+    "start": "node ./src/server/start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bryceklinker/movies"
+  },
+  "author": "Bryce Klinker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bryceklinker/movies/issues"
+  },
+  "homepage": "https://github.com/bryceklinker/movies",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "bower": "^1.4.1",
+    "browserify": "^11.0.1",
+    "es6-promise": "^2.3.0",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jasmine": "^2.0.1",
+    "jasmine-node": "^1.14.5",
+    "object-assign": "^3.0.0",
+    "request": "^2.60.0",
+    "rewire": "^2.3.4"
+  }
+}
