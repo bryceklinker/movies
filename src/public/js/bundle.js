@@ -32061,7 +32061,7 @@ module.exports = require('./lib/React');
 var MovieConstants = require('../constants/movieConstants');
 
 var MovieActions = {
-    getMovies: function getMovies() {
+    loadMovies: function loadMovies() {
         var self = this;
         var url = self._config.apiUrl + '/movies';
         self._jQuery.getJSON(url, function (data) {
@@ -32126,6 +32126,8 @@ module.exports = MovieApplication;
 var React = require('react');
 var Movie = require('./movie');
 var MovieStore = require('../stores/movieStore');
+var MovieActions = require('../actions/movieActions');
+MovieActions.init();
 
 var MovieList = React.createClass({
     displayName: 'MovieList',
@@ -32137,6 +32139,7 @@ var MovieList = React.createClass({
     },
     componentDidMount: function componentDidMount() {
         MovieStore.addChangeListener(this._onChange);
+        MovieActions.loadMovies();
     },
     _onChange: function _onChange() {
         this.setState({
@@ -32157,7 +32160,7 @@ var MovieList = React.createClass({
 
 module.exports = MovieList;
 
-},{"../stores/movieStore":184,"./movie":181,"react":175}],179:[function(require,module,exports){
+},{"../actions/movieActions":176,"../stores/movieStore":184,"./movie":181,"react":175}],179:[function(require,module,exports){
 "use strict";
 
 var React = require('react');

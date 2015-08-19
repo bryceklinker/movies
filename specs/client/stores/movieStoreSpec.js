@@ -11,7 +11,7 @@ describe('movieStore', function(){
     });
 
     it('should get empty movies', function(){
-        var movies = MovieStore.getMovies();
+        var movies = MovieStore.loadMovies();
         expect(movies.length).to.equal(0);
     });
 
@@ -22,7 +22,7 @@ describe('movieStore', function(){
             movies: movies
         });
 
-        var storeMovies = MovieStore.getMovies();
+        var storeMovies = MovieStore.loadMovies();
         expect(storeMovies).to.equal(movies);
     });
 

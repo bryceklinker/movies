@@ -1,6 +1,8 @@
 var React = require('react');
 var Movie = require('./movie');
 var MovieStore = require('../stores/movieStore');
+var MovieActions = require('../actions/movieActions');
+MovieActions.init();
 
 var MovieList = React.createClass({
     getInitialState: function(){
@@ -10,6 +12,7 @@ var MovieList = React.createClass({
     },
     componentDidMount : function(){
         MovieStore.addChangeListener(this._onChange);
+        MovieActions.loadMovies();
     },
     _onChange: function(){
         this.setState({

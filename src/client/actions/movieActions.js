@@ -1,7 +1,7 @@
 var MovieConstants = require('../constants/movieConstants');
 
 var MovieActions = {
-    getMovies: function (){
+    loadMovies: function (){
         var self = this;
         var url = self._config.apiUrl + '/movies';
         self._jQuery.getJSON(url, function(data){

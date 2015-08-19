@@ -27,7 +27,7 @@ describe('movieActions', function(){
             expect(payload.movies).to.equal(movies);
             done();
         };
-        MovieActions.getMovies();
+        MovieActions.loadMovies();
     });
 
     it('should get movies from api', function(done){
@@ -38,7 +38,7 @@ describe('movieActions', function(){
             successCallback([]);
             done();
         };
-        MovieActions.getMovies();
+        MovieActions.loadMovies();
     });
 
     it('should dispatch play move action', function(done){
