@@ -8,18 +8,26 @@ var MoviePlayer = React.createClass({
             movie: undefined
         }
     },
+    componentDidMount: function(){
+        MovieStore.addChangeListener(this._onChange);
+    },
     _videoUrl: function(){
         var url = config.apiUrl + '/' + this.props.movie.title;
         return encodeURIComponent(url);
     },
+    _onChange: function(){
+        this.setState({
+            movie: MovieStore.getPlayedMovie()
+        })
+    },
     render: function() {
-        var videoSource = this.props.movie !== undefined
+        var videoSource = this.state.movie !== undefined
             ? this._videoUrl()
             : '';
 
-        var className = this.props.movie !== undefined
+        var className = this.state.movie !== undefined
             ? 'row'
-            : 'hidden'
+            : 'hidden';
         return (
             <div className={className}>
                 <div className="col-sm-12">
