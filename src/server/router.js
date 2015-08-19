@@ -15,7 +15,7 @@ function addPublicRoute(app){
 
 function addMoviesRoute(app){
     var movieRouter = require('./movies/movieRouter');
-    app.use(movieRouter);
+    app.use('/movies', movieRouter);
 };
 
 module.exports = {
