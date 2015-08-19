@@ -6,12 +6,18 @@ var Movie = React.createClass({
         MovieActions.playMovie(this.props.movie);
     },
     render: function(){
+        var imageUrl = this.props.movie.thumbnail !== undefined
+            ? 'data:image/png;base64,' + this.props.movie.thumbnail
+            : '';
+        var imageClassName = this.props.movie.thumbnail !== undefined
+            ? 'img-rounded'
+            : 'hidden';
         return (
             <div className="col-sm-3">
                 <div className="row">
                     <div className="col-sm-6">
-                        <img className="img-rounded"
-                             src="data:image/png;base64,{this.props.movie.thumbnail}" />
+                        <img className={imageClassName}
+                             src={imageUrl} />
                     </div>
                     <div className="col-sm-6">
                         <div className="row">
