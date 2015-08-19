@@ -12,7 +12,7 @@ var MoviePlayer = React.createClass({
         MovieStore.addChangeListener(this._onChange);
     },
     _videoUrl: function(){
-        var url = config.apiUrl + '/' + this.props.movie.title;
+        var url = config.apiUrl + '/' + this.state.movie.title;
         return encodeURIComponent(url);
     },
     _onChange: function(){
