@@ -12,6 +12,6 @@ describe('config', function(){
     });
 
     it('should define api url', function(){
-        expect(config.apiUrl).to.equal('http://192.168.1.100:8080');
+        expect(config.apiUrl).to.equal('http://bryce-8:3000');
     });
 });
