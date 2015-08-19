@@ -17,7 +17,12 @@ router.get('/', function(req, res){
 router.get('/:title', function(req, res){
     var repository = new MovieRepository();
     repository.getByTitle(req.title).then(function(movie){
+        if (movie === undefined){
+            res.end();
+        }
         movie.play(res);
+    }).catch(function(error){
+        console.log(error);
     });
 });
 
