@@ -11,7 +11,7 @@ describe('server', function(){
         path = require('path');
 
         var Server = require('../../src/server/server');
-        server = new Server(3000);
+        server = new Server(5000);
         server.start();
     });
 
@@ -19,7 +19,7 @@ describe('server', function(){
         var indexPath = path.join(__dirname, '..', '..', 'src', 'public', 'index.html');
         var indexContent = fs.readFileSync(indexPath, { encoding: 'utf8' });
 
-        http.get('http://localhost:3000/', function(res){
+        http.get('http://localhost:5000/', function(res){
             var data = '';
             res.setEncoding('utf8');
             res.on('data', function(chunk) { data += chunk; });
@@ -33,7 +33,7 @@ describe('server', function(){
     it('should respond with file content', function(done){
         var filePath = path.join(__dirname, '..', '..', 'src', 'public', 'index.html');
         var fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
-        http.get('http://localhost:3000/index.html', function(res){
+        http.get('http://localhost:5000/index.html', function(res){
             var data = '';
             res.setEncoding('utf8');
             res.on('data', function(chunk) { data += chunk; });
