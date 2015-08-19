@@ -1,27 +1,18 @@
-var express = require('express');
-var path = require('path');
-
-var Server = function(port){
+var Server = function(port, router){
     this._port = port;
+    this._router = router || require('./router');
 };
 
 Server.prototype.start = function(){
+    var express = require('express');
     var app = express();
-    this.addRoutes(app);
-    this._server = app.listen(this._port);
+
+    this._router.addRoutes(app);
+    this._instance = app.listen(this._port);
 };
 
-Server.prototype.close = function() {
-    this._server.close();
-};
-
-Server.prototype.addRoutes = function(app){
-    app.get('/', function(req, res){
-        var indexPath = path.join(__dirname, './../client/index.html');
-        res.sendFile(indexPath);
-    });
-
-    app.use(express.static(__dirname + './../client'));
+Server.prototype.stop = function(){
+    this._instance.close();
 };
 
 module.exports = Server;
