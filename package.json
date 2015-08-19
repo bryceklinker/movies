@@ -39,6 +39,7 @@
     "jquery": "^2.1.4",
     "mocha": "^2.2.5",
     "object-assign": "^3.0.0",
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "supervisor": "^0.7.1"
   }
 }
