@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "test": "mocha specs/**/*Spec.js -R spec",
-    "start": "node src/server/server.js",
+    "start": "supervisor src/server/server.js",
     "build-js": "browserify src/client/components/MovieApplication.js > src/public/js/bundle.js",
     "build-copy-bootstrap-css": "copy /Y .\\node_modules\\bootstrap\\dist\\css\\bootstrap.css .\\src\\public\\css\\bootstrap.css",
     "build-copy-bootstrap-theme-css": "copy /Y .\\node_modules\\bootstrap\\dist\\css\\bootstrap-theme.css .\\src\\public\\css\\bootstrap-theme.css",
