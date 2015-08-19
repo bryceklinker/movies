@@ -11,10 +11,6 @@ var MoviePlayer = React.createClass({
     componentDidMount: function(){
         MovieStore.addChangeListener(this._onChange);
     },
-    _videoUrl: function(){
-        var url = config.apiUrl + '/' + this.state.movie.title;
-        return encodeURIComponent(url);
-    },
     _onChange: function(){
         this.setState({
             movie: MovieStore.getPlayedMovie()
@@ -22,7 +18,7 @@ var MoviePlayer = React.createClass({
     },
     render: function() {
         var videoSource = this.state.movie !== undefined
-            ? this._videoUrl()
+            ? encodeURIComponent(this.state.movie.title)
             : '';
 
         var className = this.state.movie !== undefined
