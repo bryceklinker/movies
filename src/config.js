@@ -1,4 +1,4 @@
 module.exports = {
-    apiUrl: 'http://192.168.1.100:8080',
+    apiUrl: 'http://bryce-8:3000',
     videosPath: 'C:\\Users\\Bryce\\Videos'
 };
