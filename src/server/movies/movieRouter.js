@@ -20,6 +20,13 @@ router.get('/:title', function(req, res){
         if (movie === undefined){
             res.end();
         }
+
+        var size = movie.getSize();
+        res.writeHead(200, {
+            'Content-Length': size,
+            'Connection': 'keep-alive',
+            'Content-Transfer-Encoding': 'binary'
+        });
         movie.play(res);
     }).catch(function(error){
         console.log(error);

@@ -22,6 +22,11 @@ Movie.prototype.getThumbnail = function(){
     return buffer.toString('base64');
 };
 
+Movie.prototype.getSize = function(){
+    var stat = this._fs.statSync(this.getPath());
+    return stat.size;
+};
+
 Movie.prototype.play = function(target){
     var movieStream = this._fs.createReadStream(this.getPath());
     movieStream.pipe(target);

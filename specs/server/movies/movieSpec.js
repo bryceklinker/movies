@@ -82,4 +82,20 @@ describe('movie', function(){
         expect(model.thumbnail).to.equal(thumbnailBuffer.toString('base64'));
         expect(model.title).to.equal('sdflaksjdfals');
     });
+
+    it('should get file size', function(){
+        var videoPath = 'this is a file.mp4';
+
+        var stats = {
+            size: 30000
+        };
+        fsMock.statSync = function(filePath){
+            fsMock.statSyncPath = filePath;
+            return stats;
+        };
+
+        var movie = new Movie(videoPath, fsMock);
+        expect(movie.getSize()).to.equal(stats.size);
+        expect(fsMock.statSyncPath).to.equal(videoPath);
+    });
 });
