@@ -13,13 +13,14 @@ var MovieSearch = React.createClass({
         return (
             <div className="row">
                 <form className="form-inline" onSubmit={this.handleSubmit} role="search">
-                    <div className="form-group">
-                        <label className="sr-only" for="title">Title</label>
+                    <div className="input-group">
                         <input type="text" className="form-control" id="title" ref="title" placeholder="Title" />
+                        <span className="input-group-btn">
+                            <button type="submit" className="btn btn-default">
+                                <span className="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
                     </div>
-                    <button type="submit" className="btn btn-default">
-                        <span className="glyphicon glyphicon-search"></span>
-                    </button>
                 </form>
             </div>
         );

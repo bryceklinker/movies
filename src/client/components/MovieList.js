@@ -22,7 +22,7 @@ var MovieList = React.createClass({
     render: function(){
         var movies = this.state.movies.map(function(movie){
             return (
-                <Movie movie={movie} />
+                <Movie movie={movie} key={movie.title} />
             );
         });
         return (
