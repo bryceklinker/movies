@@ -13,7 +13,7 @@ var Movie = React.createClass({
             ? 'img-rounded img-responsive'
             : 'hidden';
         return (
-            <div className="col-sm-3">
+            <div className="col-sm-12 col-md-3 col-lg-1">
                 <div className="row">
                     <div className="col-sm-6">
                         <img className={imageClassName}
