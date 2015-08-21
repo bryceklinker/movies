@@ -32,6 +32,7 @@ Movie.prototype.playChunk = function(target, start, end){
         start: start,
         end: end
     };
+    console.log('INFO: Movie file path: ' + this.getPath());
     var movieStream = this._fs.createReadStream(this.getPath(), options);
     movieStream.pipe(target);
 };
