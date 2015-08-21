@@ -115,6 +115,25 @@ describe('movieStore', function(){
         expect(storedMovies[4].title).to.equal(movies[4].title);
     });
 
+    it('should filter movies ignoring case', function(){
+        var movies = [
+            { title: 'SOME' },
+            { title: 'some' }
+        ];
+        Dispatcher.dispatch({
+            actionType: MovieConstants.MOVIES_LOADED,
+            movies: movies
+        });
+        Dispatcher.dispatch({
+            actionType: MovieConstants.SEARCH_MOVIES,
+            title: 'sOMe'
+        });
+
+        var storedMovies = MovieStore.getMovies();
+        expect(storedMovies[0].title).to.equal(movies[0].title);
+        expect(storedMovies[1].title).to.equal(movies[1].title);
+    });
+
     it('should emit change on search movies', function(){
         var emittedChange = false;
         MovieStore.addChangeListener(function(){

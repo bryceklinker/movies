@@ -12,7 +12,8 @@ var MovieStore = assign({}, EventEmitter.prototype, {
             return _movies.filter(function(movie){
                 if (!movie.title)
                     return false;
-                return movie.title.indexOf(_searchTitle) > -1;
+                var lowerCaseTitle = movie.title.toLowerCase();
+                return lowerCaseTitle.indexOf(_searchTitle.toLowerCase()) > -1;
             });
         return _movies;
     },
