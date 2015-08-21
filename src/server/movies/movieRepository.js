@@ -22,6 +22,7 @@ MovieRepository.prototype.getAll = function(){
             var movies = [];
             for (var i = 0; i < files.length; i++){
                 if(isMp4(files[i])) {
+                    console.log('INFO: Movie Path: ' + files[i]);
                     movies.push(new Movie(files[i]));
                 }
             }
