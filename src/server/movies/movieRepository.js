@@ -1,5 +1,6 @@
 var Promise = require('bluebird');
 var Movie = require('./movie.js');
+var path = require('path');
 
 function isMp4(path){
     var mp4Length = '.mp4'.length;
@@ -22,8 +23,8 @@ MovieRepository.prototype.getAll = function(){
             var movies = [];
             for (var i = 0; i < files.length; i++){
                 if(isMp4(files[i])) {
-                    console.log('INFO: Movie Path: ' + files[i]);
-                    movies.push(new Movie(files[i]));
+                    var fullPath = path.join(self._config.videosPath, files[i]);
+                    movies.push(new Movie(fullPath));
                 }
             }
             resolve(movies);

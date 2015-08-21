@@ -6,7 +6,7 @@ var Movie = function(moviePath, fs){
 };
 
 Movie.prototype.getTitle = function(){
-    return this.getPath().replace('.mp4', '');
+    return path.basename(this.getPath(), '.mp4');
 };
 
 Movie.prototype.getPath = function(){

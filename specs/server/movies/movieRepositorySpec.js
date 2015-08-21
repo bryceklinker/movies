@@ -1,4 +1,5 @@
 var expect = require('chai').expect;
+var path = require('path');
 
 describe('movieRepository', function(){
     var fsMock;
@@ -7,7 +8,9 @@ describe('movieRepository', function(){
 
     beforeEach(function(){
         fsMock = {};
-        config = {};
+        config = {
+            videosPath: 'something darkside'
+        };
 
         MovieRepository = require('../../../src/server/movies/movieRepository');
         movieRepository = new MovieRepository(config, fsMock);
@@ -21,9 +24,9 @@ describe('movieRepository', function(){
         };
 
         movieRepository.getAll().then(function(movies){
-            expect(files[0]).to.equal(movies[0].getPath());
-            expect(files[1]).to.equal(movies[1].getPath());
-            expect(files[2]).to.equal(movies[2].getPath());
+            expect(movies[0].getPath()).to.equal(path.join(config.videosPath, files[0]));
+            expect(movies[1].getPath()).to.equal(path.join(config.videosPath, files[1]));
+            expect(movies[2].getPath()).to.equal(path.join(config.videosPath, files[2]));
             done();
         });
     });
@@ -54,6 +57,7 @@ describe('movieRepository', function(){
     });
 
     it('should only get videos', function(done){
+        config.videosPath = 'C:\\something\\really\\good'
         var files = ['some.png', 'else.txt', 'other', 'one.mp4', 'times.jpeg'];
         fsMock.readdir = function(path, callback){
             callback(undefined, files);
@@ -61,7 +65,7 @@ describe('movieRepository', function(){
 
         movieRepository.getAll().then(function(movies){
             expect(movies.length).to.equal(1);
-            expect(movies[0].getPath()).to.equal(files[3]);
+            expect(movies[0].getPath()).to.equal(path.join(config.videosPath, files[3]));
             done();
         });
     });
