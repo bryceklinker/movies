@@ -1,5 +1,6 @@
 var React = require('react');
 var Movie = require('./movie');
+var MovieSearch = require('./movieSearch');
 var MovieStore = require('../stores/movieStore');
 var MovieActions = require('../actions/movieActions');
 MovieActions.init();
@@ -27,7 +28,14 @@ var MovieList = React.createClass({
         });
         return (
             <div className="row">
-                {movies}
+                <div className="col-sm-12">
+                    <div className="row">
+                        <MovieSearch />
+                    </div>
+                    <div className="row">
+                        {movies}
+                    </div>
+                </div>
             </div>
         );
     }

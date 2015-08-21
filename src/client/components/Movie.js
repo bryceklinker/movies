@@ -10,7 +10,7 @@ var Movie = React.createClass({
             ? 'data:image/png;base64,' + this.props.movie.thumbnail
             : '';
         var imageClassName = this.props.movie.thumbnail !== undefined
-            ? 'img-rounded'
+            ? 'img-rounded img-responsive'
             : 'hidden';
         return (
             <div className="col-sm-3">

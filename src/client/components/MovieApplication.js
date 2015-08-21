@@ -13,6 +13,7 @@ var MovieApplication = React.createClass({
                 <MovieNavigation />
                 <div className="container-fluid">
                     <MoviePlayer />
+                    <hr />
                     <MovieList />
                 </div>
             </div>

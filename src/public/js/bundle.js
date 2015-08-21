@@ -32066,7 +32066,7 @@ var MovieActions = {
         var url = self._config.apiUrl + '/movies';
         self._jQuery.getJSON(url, function (data) {
             self._dispatcher.dispatch({
-                actionType: MovieConstants.MOVIES_UPDATED,
+                actionType: MovieConstants.MOVIES_LOADED,
                 movies: data
             });
         });
@@ -32294,7 +32294,7 @@ module.exports = Movie;
 'use strict';
 
 module.exports = {
-    MOVIES_UPDATED: 'MOVIES_UPDATED',
+    MOVIES_LOADED: 'MOVIES_LOADED',
     PLAY_MOVIE: 'PLAY_MOVIE'
 };
 
@@ -32332,7 +32332,7 @@ var MovieStore = assign({}, EventEmitter.prototype, {
 
 Dispatcher.register(function (payload) {
     switch (payload.actionType) {
-        case MovieConstants.MOVIES_UPDATED:
+        case MovieConstants.MOVIES_LOADED:
             _movies = payload.movies;
             MovieStore.emitChange();
             break;

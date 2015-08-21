@@ -22,12 +22,18 @@ var MovieStore = assign({}, EventEmitter.prototype, {
 
 Dispatcher.register(function(payload){
     switch (payload.actionType) {
-        case MovieConstants.MOVIES_UPDATED:
+        case MovieConstants.MOVIES_LOADED:
             _movies = payload.movies;
             MovieStore.emitChange();
             break;
         case MovieConstants.PLAY_MOVIE:
             _playedMovie = payload.movie;
+            MovieStore.emitChange();
+            break;
+        case MovieConstants.SEARCH_MOVIES:
+            _movies = _movies.filter(function(movie){
+                return movie.title.indexOf(payload.title) > -1;
+            });
             MovieStore.emitChange();
             break;
         default:

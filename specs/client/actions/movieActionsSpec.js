@@ -23,7 +23,7 @@ describe('movieActions', function(){
         };
 
         dispatcherMock.dispatch = function(payload){
-            expect(payload.actionType).to.equal(MovieConstants.MOVIES_UPDATED);
+            expect(payload.actionType).to.equal(MovieConstants.MOVIES_LOADED);
             expect(payload.movies).to.equal(movies);
             done();
         };
@@ -49,5 +49,14 @@ describe('movieActions', function(){
             done();
         };
         MovieActions.playMovie(movie);
+    });
+
+    it('should dispatch search movies action', function(done){
+        dispatcherMock.dispatch = function(payload){
+            expect(payload.actionType).to.equal(MovieConstants.SEARCH_MOVIES);
+            expect(payload.title).to.equal('stuff');
+            done();
+        };
+        MovieActions.searchMovies('stuff');
     });
 });
