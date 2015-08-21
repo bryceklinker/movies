@@ -7,9 +7,6 @@ var MovieSearch = React.createClass({
         e.preventDefault();
 
         var title = React.findDOMNode(this.refs.title).value.trim();
-        if(!title)
-            return;
-
         MovieActions.searchMovies(title);
     },
     render: function(){
