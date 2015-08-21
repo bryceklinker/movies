@@ -4,9 +4,16 @@ var Dispatcher = require('../dispatcher/appDispatcher');
 var MovieConstants = require('../constants/movieConstants');
 
 var _movies = [];
+var _searchTitle;
 var _playedMovie;
 var MovieStore = assign({}, EventEmitter.prototype, {
     getMovies: function(){
+        if(_searchTitle)
+            return _movies.filter(function(movie){
+                if (!movie.title)
+                    return false;
+                return movie.title.indexOf(_searchTitle) > -1;
+            });
         return _movies;
     },
     getPlayedMovie: function(){
@@ -31,9 +38,7 @@ Dispatcher.register(function(payload){
             MovieStore.emitChange();
             break;
         case MovieConstants.SEARCH_MOVIES:
-            _movies = _movies.filter(function(movie){
-                return movie.title.indexOf(payload.title) > -1;
-            });
+            _searchTitle = payload.title;
             MovieStore.emitChange();
             break;
         default:

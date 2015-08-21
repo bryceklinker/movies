@@ -86,6 +86,35 @@ describe('movieStore', function(){
         expect(storedMovies[2].title).to.equal(movies[3].title);
     });
 
+    it('should get all movies when filter removed', function(){
+        var movies = [
+            { title: 'stuffstuff' },
+            { title: 'one stuff' },
+            { title: 'one other' },
+            { title: 'now stuff' },
+            { title: 'no no no' }
+        ];
+        Dispatcher.dispatch({
+            actionType: MovieConstants.MOVIES_LOADED,
+            movies: movies
+        });
+        Dispatcher.dispatch({
+            actionType: MovieConstants.SEARCH_MOVIES,
+            title: 'stuff'
+        });
+        Dispatcher.dispatch({
+            actionType: MovieConstants.SEARCH_MOVIES,
+            title: ''
+        });
+
+        var storedMovies = MovieStore.getMovies();
+        expect(storedMovies[0].title).to.equal(movies[0].title);
+        expect(storedMovies[1].title).to.equal(movies[1].title);
+        expect(storedMovies[2].title).to.equal(movies[2].title);
+        expect(storedMovies[3].title).to.equal(movies[3].title);
+        expect(storedMovies[4].title).to.equal(movies[4].title);
+    });
+
     it('should emit change on search movies', function(){
         var emittedChange = false;
         MovieStore.addChangeListener(function(){
