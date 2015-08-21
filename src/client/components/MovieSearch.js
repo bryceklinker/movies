@@ -12,7 +12,7 @@ var MovieSearch = React.createClass({
     render: function(){
         return (
             <div className="row">
-                <form className="form-inline" onSubmit={this.handleSubmit}>
+                <form className="form-inline" onSubmit={this.handleSubmit} role="search">
                     <div className="form-group">
                         <label className="sr-only" for="title">Title</label>
                         <input type="text" className="form-control" id="title" ref="title" placeholder="Title" />

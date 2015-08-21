@@ -32077,6 +32077,12 @@ var MovieActions = {
             movie: movie
         });
     },
+    searchMovies: function searchMovies(title) {
+        this._dispatcher.dispatch({
+            actionType: MovieConstants.SEARCH_MOVIES,
+            title: title
+        });
+    },
     init: function init(jQuery, dispatcher, config) {
         this._jQuery = jQuery || require('jquery');
         this._dispatcher = dispatcher || require('../dispatcher/appDispatcher');
@@ -32086,7 +32092,44 @@ var MovieActions = {
 
 module.exports = MovieActions;
 
-},{"../../config":185,"../constants/movieConstants":182,"../dispatcher/appDispatcher":183,"jquery":19}],177:[function(require,module,exports){
+},{"../../config":188,"../constants/movieConstants":184,"../dispatcher/appDispatcher":185,"jquery":19}],177:[function(require,module,exports){
+'use strict';
+
+var MovieConstants = require('../constants/movieConstants');
+
+var MovieActions = {
+    loadMovies: function loadMovies() {
+        var self = this;
+        var url = self._config.apiUrl + '/movies';
+        self._jQuery.getJSON(url, function (data) {
+            self._dispatcher.dispatch({
+                actionType: MovieConstants.MOVIES_LOADED,
+                movies: data
+            });
+        });
+    },
+    playMovie: function playMovie(movie) {
+        this._dispatcher.dispatch({
+            actionType: MovieConstants.PLAY_MOVIE,
+            movie: movie
+        });
+    },
+    searchMovies: function searchMovies(title) {
+        this._dispatcher.dispatch({
+            actionType: MovieConstants.SEARCH_MOVIES,
+            title: title
+        });
+    },
+    init: function init(jQuery, dispatcher, config) {
+        this._jQuery = jQuery || require('jquery');
+        this._dispatcher = dispatcher || require('../dispatcher/appDispatcher');
+        this._config = config || require('../../config');
+    }
+};
+
+module.exports = MovieActions;
+
+},{"../../config":188,"../constants/movieConstants":184,"../dispatcher/appDispatcher":185,"jquery":19}],178:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -32108,8 +32151,9 @@ var MovieApplication = React.createClass({
             React.createElement(MovieNavigation, null),
             React.createElement(
                 'div',
-                { className: 'container-fluid' },
+                { className: 'container' },
                 React.createElement(MoviePlayer, null),
+                React.createElement('hr', null),
                 React.createElement(MovieList, null)
             )
         );
@@ -32120,13 +32164,13 @@ React.render(React.createElement(MovieApplication, null), document.getElementByI
 module.exports = MovieApplication;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./MovieList":178,"./MovieNavigation":179,"./MoviePlayer":180,"bootstrap":1,"jquery":19,"react":175}],178:[function(require,module,exports){
+},{"./MovieList":179,"./MovieNavigation":180,"./MoviePlayer":181,"bootstrap":1,"jquery":19,"react":175}],179:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var Movie = require('./movie');
-var MovieStore = require('../stores/movieStore');
-var MovieActions = require('../actions/movieActions');
+var MovieStore = require('../stores/MovieStore');
+var MovieActions = require('../actions/MovieActions');
 MovieActions.init();
 
 var MovieList = React.createClass({
@@ -32160,29 +32204,35 @@ var MovieList = React.createClass({
 
 module.exports = MovieList;
 
-},{"../actions/movieActions":176,"../stores/movieStore":184,"./movie":181,"react":175}],179:[function(require,module,exports){
-"use strict";
+},{"../actions/MovieActions":176,"../stores/MovieStore":186,"./movie":183,"react":175}],180:[function(require,module,exports){
+'use strict';
 
 var React = require('react');
+var MovieSearch = require('./MovieSearch');
 
 var MovieNavigation = React.createClass({
-    displayName: "MovieNavigation",
+    displayName: 'MovieNavigation',
 
     render: function render() {
         return React.createElement(
-            "nav",
-            { className: "navbar navbar-default" },
+            'nav',
+            { className: 'navbar navbar-default navbar-fixed-top' },
             React.createElement(
-                "div",
-                { className: "container-fluid" },
+                'div',
+                { className: 'container-fluid' },
                 React.createElement(
-                    "div",
-                    { className: "navbar-header" },
+                    'div',
+                    { className: 'navbar-header' },
                     React.createElement(
-                        "a",
-                        { className: "navbar-brand", href: "#" },
-                        "Movies"
+                        'a',
+                        { className: 'navbar-brand', href: '#' },
+                        'Movies'
                     )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'navbar-form navbar-right' },
+                    React.createElement(MovieSearch, null)
                 )
             )
         );
@@ -32191,7 +32241,7 @@ var MovieNavigation = React.createClass({
 
 module.exports = MovieNavigation;
 
-},{"react":175}],180:[function(require,module,exports){
+},{"./MovieSearch":182,"react":175}],181:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32206,20 +32256,24 @@ var MoviePlayer = React.createClass({
             movie: undefined
         };
     },
-    _videoUrl: function _videoUrl() {
-        var url = config.apiUrl + '/' + this.props.movie.title;
-        return encodeURIComponent(url);
+    componentDidMount: function componentDidMount() {
+        MovieStore.addChangeListener(this._onChange);
+    },
+    _onChange: function _onChange() {
+        this.setState({
+            movie: MovieStore.getPlayedMovie()
+        });
     },
     render: function render() {
-        var videoSource = this.props.movie !== undefined ? this._videoUrl() : '';
+        var videoSource = this.state.movie !== undefined ? '/movies/' + encodeURIComponent(this.state.movie.title) : '';
 
-        var className = this.props.movie !== undefined ? 'row' : 'hidden';
+        var className = this.state.movie !== undefined ? 'row' : 'hidden';
         return React.createElement(
             'div',
             { className: className },
             React.createElement(
                 'div',
-                { className: 'col-sm-12' },
+                { className: 'col-sm-12 text-center' },
                 React.createElement('video', { autoPlay: true, controls: true, src: videoSource })
             )
         );
@@ -32228,7 +32282,52 @@ var MoviePlayer = React.createClass({
 
 module.exports = MoviePlayer;
 
-},{"../../config":185,"../stores/movieStore":184,"react":175}],181:[function(require,module,exports){
+},{"../../config":188,"../stores/movieStore":187,"react":175}],182:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var MovieActions = require('../actions/movieActions');
+MovieActions.init();
+
+var MovieSearch = React.createClass({
+    displayName: 'MovieSearch',
+
+    handleSubmit: function handleSubmit(e) {
+        e.preventDefault();
+
+        var title = React.findDOMNode(this.refs.title).value.trim();
+        MovieActions.searchMovies(title);
+    },
+    render: function render() {
+        return React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(
+                'form',
+                { className: 'form-inline', onSubmit: this.handleSubmit, role: 'search' },
+                React.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    React.createElement(
+                        'label',
+                        { className: 'sr-only', 'for': 'title' },
+                        'Title'
+                    ),
+                    React.createElement('input', { type: 'text', className: 'form-control', id: 'title', ref: 'title', placeholder: 'Title' })
+                ),
+                React.createElement(
+                    'button',
+                    { type: 'submit', className: 'btn btn-default' },
+                    React.createElement('span', { className: 'glyphicon glyphicon-search' })
+                )
+            )
+        );
+    }
+});
+
+module.exports = MovieSearch;
+
+},{"../actions/movieActions":177,"react":175}],183:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32241,6 +32340,8 @@ var Movie = React.createClass({
         MovieActions.playMovie(this.props.movie);
     },
     render: function render() {
+        var imageUrl = this.props.movie.thumbnail !== undefined ? 'data:image/png;base64,' + this.props.movie.thumbnail : '';
+        var imageClassName = this.props.movie.thumbnail !== undefined ? 'img-rounded img-responsive' : 'hidden';
         return React.createElement(
             'div',
             { className: 'col-sm-3' },
@@ -32250,8 +32351,8 @@ var Movie = React.createClass({
                 React.createElement(
                     'div',
                     { className: 'col-sm-6' },
-                    React.createElement('img', { className: 'img-rounded',
-                        src: 'data:image/png;base64,{this.props.movie.thumbnail}' })
+                    React.createElement('img', { className: imageClassName,
+                        src: imageUrl })
                 ),
                 React.createElement(
                     'div',
@@ -32290,22 +32391,23 @@ var Movie = React.createClass({
 
 module.exports = Movie;
 
-},{"../actions/movieActions":176,"react":175}],182:[function(require,module,exports){
+},{"../actions/movieActions":177,"react":175}],184:[function(require,module,exports){
 'use strict';
 
 module.exports = {
     MOVIES_LOADED: 'MOVIES_LOADED',
-    PLAY_MOVIE: 'PLAY_MOVIE'
+    PLAY_MOVIE: 'PLAY_MOVIE',
+    SEARCH_MOVIES: 'SEARCH_MOVIES'
 };
 
-},{}],183:[function(require,module,exports){
+},{}],185:[function(require,module,exports){
 'use strict';
 
 var Dispatcher = require('flux').Dispatcher;
 
 module.exports = new Dispatcher();
 
-},{"flux":16}],184:[function(require,module,exports){
+},{"flux":16}],186:[function(require,module,exports){
 'use strict';
 
 var assign = require('object-assign');
@@ -32314,9 +32416,15 @@ var Dispatcher = require('../dispatcher/appDispatcher');
 var MovieConstants = require('../constants/movieConstants');
 
 var _movies = [];
+var _searchTitle;
 var _playedMovie;
 var MovieStore = assign({}, EventEmitter.prototype, {
     getMovies: function getMovies() {
+        if (_searchTitle) return _movies.filter(function (movie) {
+            if (!movie.title) return false;
+            var lowerCaseTitle = movie.title.toLowerCase();
+            return lowerCaseTitle.indexOf(_searchTitle.toLowerCase()) > -1;
+        });
         return _movies;
     },
     getPlayedMovie: function getPlayedMovie() {
@@ -32340,6 +32448,10 @@ Dispatcher.register(function (payload) {
             _playedMovie = payload.movie;
             MovieStore.emitChange();
             break;
+        case MovieConstants.SEARCH_MOVIES:
+            _searchTitle = payload.title;
+            MovieStore.emitChange();
+            break;
         default:
             break;
     }
@@ -32347,12 +32459,64 @@ Dispatcher.register(function (payload) {
 
 module.exports = MovieStore;
 
-},{"../constants/movieConstants":182,"../dispatcher/appDispatcher":183,"events":14,"object-assign":20}],185:[function(require,module,exports){
+},{"../constants/movieConstants":184,"../dispatcher/appDispatcher":185,"events":14,"object-assign":20}],187:[function(require,module,exports){
+'use strict';
+
+var assign = require('object-assign');
+var EventEmitter = require('events').EventEmitter;
+var Dispatcher = require('../dispatcher/appDispatcher');
+var MovieConstants = require('../constants/movieConstants');
+
+var _movies = [];
+var _searchTitle;
+var _playedMovie;
+var MovieStore = assign({}, EventEmitter.prototype, {
+    getMovies: function getMovies() {
+        if (_searchTitle) return _movies.filter(function (movie) {
+            if (!movie.title) return false;
+            var lowerCaseTitle = movie.title.toLowerCase();
+            return lowerCaseTitle.indexOf(_searchTitle.toLowerCase()) > -1;
+        });
+        return _movies;
+    },
+    getPlayedMovie: function getPlayedMovie() {
+        return _playedMovie;
+    },
+    addChangeListener: function addChangeListener(callback) {
+        this.on('change', callback);
+    },
+    emitChange: function emitChange() {
+        this.emit('change');
+    }
+});
+
+Dispatcher.register(function (payload) {
+    switch (payload.actionType) {
+        case MovieConstants.MOVIES_LOADED:
+            _movies = payload.movies;
+            MovieStore.emitChange();
+            break;
+        case MovieConstants.PLAY_MOVIE:
+            _playedMovie = payload.movie;
+            MovieStore.emitChange();
+            break;
+        case MovieConstants.SEARCH_MOVIES:
+            _searchTitle = payload.title;
+            MovieStore.emitChange();
+            break;
+        default:
+            break;
+    }
+});
+
+module.exports = MovieStore;
+
+},{"../constants/movieConstants":184,"../dispatcher/appDispatcher":185,"events":14,"object-assign":20}],188:[function(require,module,exports){
 'use strict';
 
 module.exports = {
-    apiUrl: 'http://192.168.1.100:8080',
+    apiUrl: 'http://bryce-8:3000',
     videosPath: 'C:\\Users\\Bryce\\Videos'
 };
 
-},{}]},{},[177]);
+},{}]},{},[178]);
