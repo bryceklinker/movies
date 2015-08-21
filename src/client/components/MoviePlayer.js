@@ -26,7 +26,7 @@ var MoviePlayer = React.createClass({
             : 'hidden';
         return (
             <div className={className}>
-                <div className="col-sm-12 text-center">
+                <div className="col-lg-12 text-center">
                     <video autoPlay controls src={videoSource} />
                 </div>
             </div>
