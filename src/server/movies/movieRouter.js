@@ -21,13 +21,19 @@ router.get('/:title', function(req, res){
             res.end();
         }
 
-        var size = movie.getSize();
-        res.writeHead(200, {
-            'Content-Length': size,
-            'Connection': 'keep-alive',
-            'Content-Transfer-Encoding': 'binary'
+        var movieSize = movie.getSize();
+        var range = req.headers.range;
+        var positions = range.replace(/bytes=/, '').split('-');
+        var start = parseInt(positions[0], 10);
+        var end = positions[1] ? parseInt(positions[1], 10) : movieSize - 1;
+        var chunkSize = (end - start) + 1;
+        res.writeHead(206, {
+            'Content-Range': 'bytes ' + start + '-' + end + '/' + movieSize,
+            'Accept-Ranges': 'bytes',
+            'Content-Length': chunkSize,
+            'Content-Type': 'video/mp4'
         });
-        movie.play(res);
+        movie.playChunk(res, start, end + 1);
     }).catch(function(error){
         console.log(error);
     });

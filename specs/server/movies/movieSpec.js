@@ -48,24 +48,27 @@ describe('movie', function(){
         expect(movie.getTitle()).to.equal('hellow');
     });
 
-    it('should play move to stream', function(){
+    it('should play chunk of movie', function(){
         var readStream = {
             pipe: function(target){
                 readStream.target = target;
             }
         };
 
-        fsMock.createReadStream = function(path){
+        fsMock.createReadStream = function(path, options){
             fsMock.createReadStreamPath = path;
+            fsMock.createReadStreamOptions = options;
             return readStream;
         };
 
         var targetStream = { one: 'this should be a stream.' };
         var movie = new Movie('sadkfjalsdk', fsMock);
-        movie.play(targetStream);
+        movie.playChunk(targetStream, 500, 10000);
 
         expect(readStream.target).to.equal(targetStream);
         expect(fsMock.createReadStreamPath).to.equal(movie.getPath());
+        expect(fsMock.createReadStreamOptions.start).to.equal(500);
+        expect(fsMock.createReadStreamOptions.end).to.equal(10000);
     });
 
     it('should create a simple model', function(){

@@ -27,8 +27,12 @@ Movie.prototype.getSize = function(){
     return stat.size;
 };
 
-Movie.prototype.play = function(target){
-    var movieStream = this._fs.createReadStream(this.getPath());
+Movie.prototype.playChunk = function(target, start, end){
+    var options = {
+        start: start,
+        end: end
+    };
+    var movieStream = this._fs.createReadStream(this.getPath(), options);
     movieStream.pipe(target);
 };
 
