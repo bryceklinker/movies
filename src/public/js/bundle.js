@@ -32493,7 +32493,7 @@ module.exports = MovieStore;
 'use strict';
 
 module.exports = {
-    apiUrl: 'http://localhost:3000',
+    apiUrl: 'http://bryce-8:3000',
     videosPath: 'C:\\Users\\Bryce\\Videos'
 };
 
