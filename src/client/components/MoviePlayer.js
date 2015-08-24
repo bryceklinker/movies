@@ -16,9 +16,12 @@ var MoviePlayer = React.createClass({
             movie: MovieStore.getPlayedMovie()
         })
     },
+    getVideoUrl: function(){
+        return config.apiUrl + '/movies/' + encodeURIComponent(this.state.movie.title);
+    },
     render: function() {
         var videoSource = this.state.movie !== undefined
-            ? '/movies/' + encodeURIComponent(this.state.movie.title)
+            ? this.getVideoUrl()
             : '';
 
         var className = this.state.movie !== undefined
