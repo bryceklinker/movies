@@ -18,8 +18,8 @@ var Movie = React.createClass({
                     <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <img className={imageClassName}
                              src={imageUrl}
-                             height="50"
-                             width="50" />
+                             height="150"
+                             width="150" />
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <div className="row">

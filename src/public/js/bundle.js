@@ -32243,8 +32243,11 @@ var MoviePlayer = React.createClass({
             movie: MovieStore.getPlayedMovie()
         });
     },
+    getVideoUrl: function getVideoUrl() {
+        return config.apiUrl + '/movies/' + encodeURIComponent(this.state.movie.title);
+    },
     render: function render() {
-        var videoSource = this.state.movie !== undefined ? '/movies/' + encodeURIComponent(this.state.movie.title) : '';
+        var videoSource = this.state.movie !== undefined ? this.getVideoUrl() : '';
 
         var className = this.state.movie !== undefined ? 'row' : 'hidden';
         return React.createElement(
@@ -32330,7 +32333,9 @@ var Movie = React.createClass({
                     'div',
                     { className: 'col-lg-6 col-md-6 col-sm-6 col-xs-6' },
                     React.createElement('img', { className: imageClassName,
-                        src: imageUrl })
+                        src: imageUrl,
+                        height: '150',
+                        width: '150' })
                 ),
                 React.createElement(
                     'div',
@@ -32493,7 +32498,7 @@ module.exports = MovieStore;
 'use strict';
 
 module.exports = {
-    apiUrl: 'http://bryce-8:3000',
+    apiUrl: 'http://localhost:3000',
     videosPath: 'C:\\Users\\Bryce\\Videos'
 };
 
