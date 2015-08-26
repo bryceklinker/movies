@@ -30,8 +30,8 @@ describe('movie', function(){
         var moviePath = 'something.mp4';
         var movie = new Movie(moviePath, fsMock);
         expect(movie.getThumbnail()).to.equal(thumbnailBuffer.toString('base64'));
-        expect(fsMock.existsSyncPath).to.equal(moviePath.replace('.mp4', '.png'));
-        expect(fsMock.readFileSyncPath).to.equal(moviePath.replace('.mp4', '.png'));
+        expect(fsMock.existsSyncPath).to.equal(moviePath.replace('.mp4', '.jpg'));
+        expect(fsMock.readFileSyncPath).to.equal(moviePath.replace('.mp4', '.jpg'));
     });
 
     it('should not get thumbnail if no thumbnail exists', function(){
@@ -72,8 +72,6 @@ describe('movie', function(){
     });
 
     it('should create a simple model', function(){
-        var path = require('path');
-
         var thumbnailBuffer = new Buffer('sdkfa;lsdkja', 'binary');
         fsMock.existsSync = function() { return true; };
         fsMock.readFileSync = function(){

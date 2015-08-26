@@ -14,7 +14,7 @@ Movie.prototype.getPath = function(){
 };
 
 Movie.prototype.getThumbnail = function(){
-    var thumbnailPath = this.getPath().replace('.mp4', '.png');
+    var thumbnailPath = this.getPath().replace('.mp4', '.jpg');
     if (!this._fs.existsSync(thumbnailPath))
         return undefined;
 
