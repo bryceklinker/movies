@@ -32255,8 +32255,12 @@ var MoviePlayer = React.createClass({
             { className: className },
             React.createElement(
                 'div',
-                { className: 'col-lg-12 text-center embed-responsive embed-responsive-16by9' },
-                React.createElement('video', { className: 'embed-responsive-item', autoPlay: true, controls: true, src: videoSource })
+                { className: 'col-lg-8 col-md-6 col-sm-6 col-xs-12' },
+                React.createElement(
+                    'div',
+                    { className: 'embed-responsive embed-responsive-16by9 col-lg-8 col-md-6 col-sm-6 col-xs-12 text-center' },
+                    React.createElement('video', { className: 'embed-responsive-item', autoPlay: true, controls: true, src: videoSource })
+                )
             )
         );
     }
@@ -32325,7 +32329,7 @@ var Movie = React.createClass({
         var imageClassName = this.props.movie.thumbnail !== undefined ? 'img-rounded img-responsive' : 'hidden';
         return React.createElement(
             'div',
-            { className: 'col-lg-4 col-md-6 col-sm-6 col-xs-12 movie' },
+            { className: 'col-lg-3 col-md-3 col-sm-3 col-xs-12 movie' },
             React.createElement(
                 'div',
                 { className: 'row' },
@@ -32343,7 +32347,7 @@ var Movie = React.createClass({
                         { className: 'row' },
                         React.createElement(
                             'div',
-                            { className: 'col-lg-12' },
+                            { className: 'col-lg-12 col-md-12 col-sm-12 col-xs-12' },
                             React.createElement(
                                 'h4',
                                 null,
@@ -32356,7 +32360,7 @@ var Movie = React.createClass({
                         { className: 'row' },
                         React.createElement(
                             'div',
-                            { className: 'col-lg-12' },
+                            { className: 'col-lg-12 col-md-12 col-sm-12 col-xs-12' },
                             React.createElement(
                                 'button',
                                 { type: 'button', className: 'btn btn-default', onClick: this.playMovie },

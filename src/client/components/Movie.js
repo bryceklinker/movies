@@ -13,7 +13,7 @@ var Movie = React.createClass({
             ? 'img-rounded img-responsive'
             : 'hidden';
         return (
-            <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 movie">
+            <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12 movie">
                 <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <img className={imageClassName}
@@ -21,12 +21,12 @@ var Movie = React.createClass({
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <div className="row">
-                            <div className="col-lg-12">
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <h4>{this.props.movie.title}</h4>
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-lg-12">
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <button type="button" className="btn btn-default" onClick={this.playMovie}>
                                     <span className="glyphicon glyphicon-play"></span>
                                 </button>
