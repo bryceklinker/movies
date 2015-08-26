@@ -32255,8 +32255,8 @@ var MoviePlayer = React.createClass({
             { className: className },
             React.createElement(
                 'div',
-                { className: 'col-lg-12 text-center' },
-                React.createElement('video', { autoPlay: true, controls: true, src: videoSource })
+                { className: 'col-lg-12 text-center embed-responsive embed-responsive-16by9' },
+                React.createElement('video', { className: 'embed-responsive-item', autoPlay: true, controls: true, src: videoSource })
             )
         );
     }
@@ -32325,7 +32325,7 @@ var Movie = React.createClass({
         var imageClassName = this.props.movie.thumbnail !== undefined ? 'img-rounded img-responsive' : 'hidden';
         return React.createElement(
             'div',
-            { className: 'col-lg-4 col-md-6 col-sm-6 col-xs-12' },
+            { className: 'col-lg-4 col-md-6 col-sm-6 col-xs-12 movie' },
             React.createElement(
                 'div',
                 { className: 'row' },
@@ -32333,9 +32333,7 @@ var Movie = React.createClass({
                     'div',
                     { className: 'col-lg-6 col-md-6 col-sm-6 col-xs-6' },
                     React.createElement('img', { className: imageClassName,
-                        src: imageUrl,
-                        height: '150',
-                        width: '150' })
+                        src: imageUrl })
                 ),
                 React.createElement(
                     'div',
@@ -32498,7 +32496,7 @@ module.exports = MovieStore;
 'use strict';
 
 module.exports = {
-    apiUrl: 'http://localhost:3000',
+    apiUrl: 'http://bryce-8:3000',
     videosPath: 'C:\\Users\\Bryce\\Videos'
 };
 

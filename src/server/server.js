@@ -5,8 +5,10 @@ var Server = function(port, router){
 
 Server.prototype.start = function(){
     var express = require('express');
+    var cors = require('cors');
     var app = express();
 
+    app.use(cors());
     this._router.addRoutes(app);
     this._instance = app.listen(this._port);
 };

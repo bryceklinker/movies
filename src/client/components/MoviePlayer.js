@@ -29,8 +29,8 @@ var MoviePlayer = React.createClass({
             : 'hidden';
         return (
             <div className={className}>
-                <div className="col-lg-12 text-center">
-                    <video autoPlay controls src={videoSource} />
+                <div className="col-lg-12 text-center embed-responsive embed-responsive-16by9">
+                    <video className="embed-responsive-item" autoPlay controls src={videoSource} />
                 </div>
             </div>
         );
