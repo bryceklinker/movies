@@ -23,13 +23,17 @@ var MoviePlayer = React.createClass({
         var videoSource = this.state.movie !== undefined
             ? this.getVideoUrl()
             : '';
-
         var className = this.state.movie !== undefined
             ? 'row'
             : 'hidden';
+
+        var title = this.state.movie != undefined
+            ? this.state.movie.title
+            : '';
         return (
             <div className={className}>
                 <div className="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                    <h4>Now Playing: {title}</h4>
                     <div className="embed-responsive embed-responsive-16by9">
                         <video className="embed-responsive-item" autoPlay controls src={videoSource} />
                     </div>

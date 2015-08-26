@@ -32248,8 +32248,9 @@ var MoviePlayer = React.createClass({
     },
     render: function render() {
         var videoSource = this.state.movie !== undefined ? this.getVideoUrl() : '';
-
         var className = this.state.movie !== undefined ? 'row' : 'hidden';
+
+        var title = this.state.movie != undefined ? this.state.movie.title : '';
         return React.createElement(
             'div',
             { className: className },
@@ -32257,8 +32258,14 @@ var MoviePlayer = React.createClass({
                 'div',
                 { className: 'col-lg-8 col-md-6 col-sm-6 col-xs-12' },
                 React.createElement(
+                    'h4',
+                    null,
+                    'Now Playing: ',
+                    title
+                ),
+                React.createElement(
                     'div',
-                    { className: 'embed-responsive embed-responsive-16by9 col-lg-8 col-md-6 col-sm-6 col-xs-12 text-center' },
+                    { className: 'embed-responsive embed-responsive-16by9' },
                     React.createElement('video', { className: 'embed-responsive-item', autoPlay: true, controls: true, src: videoSource })
                 )
             )
